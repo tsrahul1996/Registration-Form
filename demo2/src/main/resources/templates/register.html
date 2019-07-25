@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="global.css" type="text/css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <style>
+  .jumbotron {
+    background-color: #f4511e;
+    color: #fff;
+  }
+</style>
+
+    <script>
+function validationFn()
+{
+    var name = document.forms["RegForm"]["name"];
+    var email = document.forms["RegForm"]["email"];
+    var phno = document.forms["RegForm"]["phno"];
+    var address1 = document.forms["RegForm"]["address1"];
+    var district =  document.forms["RegForm"]["district"];
+    var state = document.forms["RegForm"]["state"];
+    var pincode = document.forms["RegForm"]["pincode"];
+    var password = document.forms["RegForm"]["password"];
+
+     if (name.value == "")
+    {
+        window.alert("Please enter your name.");
+        name.focus();
+        return false;
+    }
+     if (email.value == "")
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+
+    if (email.value.indexOf("@", 0) < 0)
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+
+    if (email.value.indexOf(".", 0) < 0)
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+     }
+     if (phno.value == "")
+    {
+        window.alert("Please enter your mobile number.");
+        phno.focus();
+        return false;
+    }
+    if (address1.value == "")
+    {
+        window.alert("Please enter your address.");
+        address1.focus();
+        return false;
+    }
+    if (district.value == "")
+    {
+        window.alert("Please enter your district.");
+        district.focus();
+        return false;
+    }
+    if (state.value == "")
+    {
+        window.alert("Please enter your district.");
+        name.focus();
+        return false;
+    }
+    if (state.value == "")
+    {
+        window.alert("Please enter your state.");
+        state.focus();
+        return false;
+    }
+    if (pincode.value == "")
+    {
+        window.alert("Please enter your pincode.");
+        pincode.focus();
+        return false;
+    }
+        if (password.value == "")
+    {
+        window.alert("Please enter your password");
+        password.focus();
+        return false;
+    }
+     return true;
+}
+    </script>
+</head>
+<body>
+
+<div class="container-fluid">
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-sm-4"> <h2> Registration Form </h2>
+        </div>
+
+
+        </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <form name="RegForm" action="/register" onsubmit="return validationFn()" method="POST">
+            <h2>Create an account</h2>
+            <h2> </h2>
+
+            <div class="form-group">
+                <label for="name">Your Name * </label>
+                <input type="name" name="name" class="form-control" id="name" placeholder="full name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address *</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="email">
+            </div>
+
+            <div class="form-group">
+                <label for="phno">Mobile Number *</label>
+                <input type="Phno" name="phno" class="form-control" id="phno" placeholder="Mobile Number">
+            </div>
+
+
+            <div class="form-group">
+                <label for="address1">Address 1 *</label>
+                <input type="address1" name="address1" class="form-control" id="address1" placeholder="Address Line 1">
+            </div>
+            <div class="form-group">
+                <label for="address2">Address 2</label>
+                <input type="address2" name="address2" class="form-control" id="address2" placeholder="Address Line 2">
+            </div>
+
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="city" name="city" class="form-control" id="city" placeholder="City">
+            </div>
+            <div class="form-group">
+                <label for="district">District *</label>
+                <input type="district" name="district" class="form-control" id="district" placeholder="District">
+            </div>
+            <div class="form-group">
+                <label for="state">State *</label>
+                <input type="state" name="state" class="form-control" id="state" placeholder="State">
+            </div>
+            <div class="form-group">
+                <label for="pincode">Pincode *</label>
+                <input type="pincode" name="pincode" class="form-control" id="pincode" placeholder="Pincode">
+            </div>
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Your new password">
+            </div>
+            <button type="submit" class="btn btn-success">Sign Up</button>
+
+
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</html>
