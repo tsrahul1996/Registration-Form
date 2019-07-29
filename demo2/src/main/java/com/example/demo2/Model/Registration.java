@@ -15,14 +15,8 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name = "employees")
+@Table(name = "registration_details")
 @Data
-@NamedStoredProcedureQueries({
-        @NamedStoredProcedureQuery(name = "getAllRegistration",
-                procedureName = "RegistrationSelectAll",
-                parameters = {},
-                resultClasses = Registration.class)
-})
 public class Registration  implements Serializable {
 
     @Id
@@ -48,6 +42,40 @@ public class Registration  implements Serializable {
     private String city;
     @Column(name = "Pincode")
     private String pincode;
+
+    public Registration() {
+    }
+    public Registration(Registration registration) {
+        this.id = registration.getId();
+        this.email =registration.getEmail();
+        this.name = registration.getName();
+        this.password = registration.getPassword();
+        this.phno = registration.getPhno();
+        this.address1 = registration.getAddress1();
+        this.address2 = registration.getAddress2();
+        this.state = registration.getState();
+        this.district = registration.getDistrict();
+        this.city = registration.city;
+        this.pincode = registration.getPincode();
+        this.roles = registration.getRoles();
+    }
+
+
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
+
+
+
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public int getId() {
         return id;

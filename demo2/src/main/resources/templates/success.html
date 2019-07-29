@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"
-
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Registration Form</title>
     <meta charset="utf-8">
@@ -23,40 +21,17 @@
   }
 </style>
 </head>
-<tbody>
-<div class="container-fluid">
-<div class="jumbotron">
-    <div class="row">
-        <div class="col-sm-4"> <h2> Registration Form </h2>
+<body>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-sm-6 col-sm-offset-3">
+            <br><br> <h2 style="color:#0fad00">Success</h2>
+            <p style="font-size:20px;color:#5C5C5C;">Thank you for registering, Please login to continue</p>
+            <a href="/registrationSelectAll" class="btn btn-success">     Log in      </a>
+            <br><br>
         </div>
-        <div class="col-sm-4"></div>
-        <form action="/logout" method="GET">
-            <button>
-                <input type="submit" id="logout" value="logout"  style="height:30px; width:200px" />
-            </button>
-        </form>
 
-        </div>
+    </div>
 </div>
-
-<h2>Registered List</h2>
-    <div class="row col-md-7 table-responsive">
-<table id="customerTable" class="table">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
-    <tr th:each="target, rowStat: ${target}"
-        th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
-             <td th:text="${target.id}">1</td>
-             <td th:text="${target.name}">aaa</td>
-       </tr>
-    <tbody>
-</table>
-</div>
-
-</tbody>
+</body>
 </html>

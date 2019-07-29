@@ -24,8 +24,8 @@
 <body>
 <div class="container-fluid">
     <div class="jumbotron">
-        <h1></h1>
-        <p>Pleases enter login details</p>
+        <h2>Login Form</h2>
+
     </div>
 
         <div class="row">
@@ -35,15 +35,16 @@
                     <div class="col-sm-4"></div>
                     <div class="col-sm-4">
 
+                        <h2>Please, Enter login details</h2>
 
-                            <label for="email">Email address</label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                            <label for="username">User name</label>
+                            <input type="username" name="username" class="form-control" id="username" placeholder="Register User name">
                             <label for="password">Password</label>
                             <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                             <h1></h1>
-                <button type="submit" class="btn btn-success">Sign Up</button>
-
-                            <h3 th:text="${message}">Please enter your email id or password</h3></div>
+                        <input name="_csrf" type="hidden" value="61ff09fa-738f-44ab-8c62-6e513a9386b9" />
+                        <button type="submit" class="btn btn-success">Sign Up</button>
+                            <h3 th:text="${message}"></h3></div>
 
                 </div>
             </form>

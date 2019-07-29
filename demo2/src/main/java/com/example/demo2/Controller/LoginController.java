@@ -17,7 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @Scope("session")
-@SessionAttributes("email")
+/*@SessionAttributes("email")*/
+@RequestMapping
 public class LoginController {
 
     @Autowired
@@ -33,11 +34,15 @@ public class LoginController {
         return "main";
     }
 
+  /*  @GetMapping
+    public String helloworld(){
+        return "helloworld";
+    }
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String homePage(Model model) {
         return "home";
     }
-
+*/
 
     @RequestMapping(value={"/login"}, method = RequestMethod.GET)
     public ModelAndView login(){
@@ -55,30 +60,15 @@ public class LoginController {
     }
 
 
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String showWelcomePage(ModelMap model, @RequestParam String email, @RequestParam String password) {
+    public String showWelcomePage(ModelMap model) {
 
-        if(email == "") {
-            model.addAttribute("message", "Please ! enter an email address");
-            return "login";
-        }
-        if(password == "") {
-            model.addAttribute("message", "Please ! enter an password");
-            return "login";
-        }
-
-
-            model.addAttribute("message","The email or password you have entered is incorrect");
-            return "login";
+           return "registrationSelectAll";
     }
 
 
 
-
-        @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-        public String WelcomePage() {
-        return "welcome";
-    }
 
 
     }
